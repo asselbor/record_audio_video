@@ -1,0 +1,17 @@
+<launch>
+  
+  <arg name="identity" default="default"/>
+
+  <node pkg="record_audio_video" type="record_video.py" name="record_video">
+    <param name="device" value="1" />
+    <param name="topic_end_record" value="topic_end_record" />
+    <param name="identity" value="$(arg identity)"/>
+  </node>
+
+  <node pkg="record_audio_video" type="record_audio.py" name="record_audio">
+    <param name="device" value="1" />
+    <param name="topic_end_record" value="topic_end_record" />
+    <param name="identity" value="$(arg identity)"/>
+  </node>
+
+</launch>
